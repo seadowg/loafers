@@ -17,7 +17,9 @@ class MyApp extends App {
 }
 ```
 
-### Ideas
+## Ideas
+
+Here are the planned features and ideas for loafers:
 
 * Simple UI creation and event handling for Android loosely based on [shoes](http://shoesrb.com/).
 * Nice generalised abstractions around Android system and services.
