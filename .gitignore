@@ -1,2 +1,5 @@
 spike/target/*
 spike/.idea/*
+target/*
+.idea/*
+*.iml
