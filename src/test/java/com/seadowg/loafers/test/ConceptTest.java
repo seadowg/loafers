@@ -10,15 +10,17 @@ import com.seadowg.loafers.collection.List;
 import com.seadowg.loafers.widget.Button;
 import com.seadowg.loafers.widget.Input;
 import com.seadowg.loafers.widget.Popup;
-import junit.framework.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.robolectric.Robolectric;
 import org.robolectric.RobolectricTestRunner;
 import org.robolectric.annotation.Config;
+import org.robolectric.shadows.ShadowAlertDialog;
 import org.robolectric.shadows.ShadowDialog;
 
-import static junit.framework.Assert.assertNotNull;
+import java.util.Arrays;
+
+import static junit.framework.Assert.assertTrue;
 import static org.junit.Assert.assertEquals;
 import static org.robolectric.Robolectric.shadowOf;
 
@@ -41,8 +43,8 @@ public class ConceptTest {
     assertEquals("Shake", button.getText());
 
     button.performClick();
-    AlertDialog popup = (AlertDialog) ShadowDialog.getLatestDialog();
-    assertEquals("Yes!", shadowOf(popup).getTitle());
+    ShadowAlertDialog popup = (shadowOf((AlertDialog) ShadowDialog.getLatestDialog()));
+    assertTrue(Arrays.asList("Yes!", "No!", "Maybe?").contains(popup.getTitle()));
   }
 
   private static class MyApp extends App {
@@ -52,7 +54,7 @@ public class ConceptTest {
       new Input();
       new Button("Shake") {
         public void click() {
-          String answer = new List("Yes!").chooseOne();
+          String answer = new List("Yes!", "No!", "Maybe?").chooseOne();
           new Popup(answer).show();
         }
       };
