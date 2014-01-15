@@ -54,7 +54,7 @@ public class ConceptTest {
       new Input();
       new Button("Shake") {
         public void click() {
-          String answer = new List("Yes!", "No!", "Maybe?").chooseOne();
+          String answer = new List<String>("Yes!", "No!", "Maybe?").chooseOne();
           new Popup(answer).show();
         }
       };

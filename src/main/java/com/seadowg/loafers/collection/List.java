@@ -1,16 +1,35 @@
 package com.seadowg.loafers.collection;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Random;
 
-public class List {
-  private final String[] values;
+public class List<T> {
 
-  public List(String ... values) {
-    this.values = values;
+  private final java.util.List<T> values;
+
+  public List(T ... values) {
+    this.values = Arrays.asList(values);
   }
 
-  public String chooseOne() {
-    int index = new Random().nextInt(values.length);
-    return values[index];
+  public T chooseOne() {
+    int index = new Random().nextInt(values.size());
+    return values.get(index);
+  }
+
+  public T first() {
+    return values.get(0);
+  }
+
+  public T last() {
+    return values.get(values.size() - 1);
+  }
+
+  public T get(int index) {
+    return values.get(index);
+  }
+
+  public Integer length() {
+    return values.size();
   }
 }
