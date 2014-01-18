@@ -17,10 +17,6 @@ public class Input {
     return editText.getText().toString();
   }
 
-  public void setText(String text) {
-    editText.setText(text);
-  }
-
   public void onChange(Function<String, Void> function) {
     editText.addTextChangedListener(new ChangeListener(function));
   }

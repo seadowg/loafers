@@ -27,17 +27,6 @@ public class InputTest {
     assertEquals("I have grown quite weary", app.getInput().getText());
   }
 
-  @Test
-  public void setText_setsTheViewsText() {
-    TestApp app = Robolectric.buildActivity(TestApp.class).create().resume().start().get();
-    LinearLayout layout = Helper.fetchAppLayout(app);
-
-    app.getInput().setText("Oh great, I hope you’d say that");
-
-    EditText editText = (EditText) layout.getChildAt(0);
-    assertEquals("Oh great, I hope you’d say that", editText.getText().toString());
-  }
-
   private static class TestApp extends App {
     private Input input;
 
