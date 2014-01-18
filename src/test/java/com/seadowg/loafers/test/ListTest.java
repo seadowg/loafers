@@ -57,4 +57,19 @@ public class ListTest {
     List<String> oneList = new List("One");
     assertEquals(new Integer(1), oneList.length());
   }
+
+  @Test
+  public void add_returnsANewListWithTheContentsOfBoth() {
+    List<String> originalList = new List("One", "Two");
+    List<String> appendList = new List("Three");
+    List<String> combinedList = originalList.add(appendList);
+
+    assertTrue(combinedList != originalList);
+    assertTrue(combinedList != appendList);
+
+    assertEquals(new Integer(3), combinedList.length());
+    assertEquals("One", combinedList.get(0));
+    assertEquals("Two", combinedList.get(1));
+    assertEquals("Three", combinedList.get(2));
+  }
 }

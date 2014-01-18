@@ -31,4 +31,19 @@ public class List<T> {
   public Integer length() {
     return values.size();
   }
+
+  public List<T> add(List<T> appendList) {
+    int newLength = length() + appendList.length();
+    Object[] buffer = new Object[newLength];
+
+    for (int i = 0; i < newLength; i++) {
+      if (i < length()) {
+        buffer[i]= get(i);
+      } else {
+        buffer[i] = appendList.get(i - length());
+      }
+    }
+
+    return new List<T>((T[]) buffer);
+  }
 }
