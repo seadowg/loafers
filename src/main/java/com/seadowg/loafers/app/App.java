@@ -14,8 +14,6 @@ public abstract class App extends Activity {
   private static App activity;
   private LinearLayout layout;
 
-  protected String title = "Loafers";
-
   public abstract void open();
 
   @Override
@@ -32,7 +30,6 @@ public abstract class App extends Activity {
 
     App.activity = this;
     open();
-    setTitle(title);
   }
 
   public LinearLayout getLayout() {

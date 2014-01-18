@@ -49,7 +49,7 @@ public class ConceptTest {
 
   private static class MyApp extends App {
     public void open() {
-      title = "Magic 8-Ball";
+      setTitle("Magic 8-Ball");
 
       new Input();
       new Button("Shake") {
