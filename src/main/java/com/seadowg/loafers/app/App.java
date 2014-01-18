@@ -6,57 +6,42 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.LinearLayout;
+import com.seadowg.loafers.app.internal.Screen;
+import com.seadowg.loafers.app.internal.view.builder.AlertDialogBuilder;
+import com.seadowg.loafers.app.internal.view.builder.ButtonBuilder;
 import com.seadowg.loafers.widget.Button;
 import com.seadowg.loafers.widget.Input;
 import com.seadowg.loafers.widget.Popup;
 
 public abstract class App extends Activity {
-  private static App activity;
-  private LinearLayout layout;
+  private static App context;
+  private static Screen screen;
 
   public abstract void open();
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
+    App.context = this;
 
-    layout = new LinearLayout(this);
-    layout.setOrientation(LinearLayout.VERTICAL);
-    layout.setLayoutParams(new LinearLayout.LayoutParams(
-        LinearLayout.LayoutParams.FILL_PARENT,
-        LinearLayout.LayoutParams.FILL_PARENT
-    ));
-    setContentView(layout);
-
-    App.activity = this;
+    screen = new Screen();
+    screen.attach(this);
     open();
   }
 
-  public LinearLayout getLayout() {
-    return layout;
+  private static void addView(View view) {
+    screen.addView(view);
   }
 
   public static void add(final Button button) {
-    android.widget.Button androidButton = new android.widget.Button(App.activity);
-    androidButton.setText(button.text);
-    androidButton.setOnClickListener(new View.OnClickListener() {
-      @Override
-      public void onClick(View v) {
-        button.click();
-      }
-    });
-
-    App.activity.getLayout().addView(androidButton);
+    App.addView(new ButtonBuilder(App.context, button).build());
   }
 
   public static void add(final Input input) {
-    android.widget.EditText editText = new EditText(App.activity);
-    App.activity.getLayout().addView(editText);
+    App.addView(new EditText(App.context));
   }
 
   public static void show(final Popup popup) {
-    AlertDialog.Builder builder = new AlertDialog.Builder(App.activity);
-    builder.setTitle(popup.text);
-    builder.create().show();
+    new AlertDialogBuilder(App.context, popup).build().show();
   }
 }
