@@ -1,5 +1,6 @@
 package com.seadowg.loafers.collection;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Random;
 
@@ -32,40 +33,21 @@ public class List<T> {
     return values.size();
   }
 
+  public java.util.List<T> toJavaList() {
+    return new ArrayList<T>(values);
+  }
+
   public List<T> add(List<T> appendList) {
-    int newLength = length() + appendList.length();
-    Object[] buffer = new Object[newLength];
+    java.util.List<T> javaList = toJavaList();
+    javaList.addAll(appendList.toJavaList());
 
-    for (int i = 0; i < newLength; i++) {
-      if (i < length()) {
-        buffer[i]= get(i);
-      } else {
-        buffer[i] = appendList.get(i - length());
-      }
-    }
-
-    return new List<T>((T[]) buffer);
+    return new List((T[]) javaList.toArray());
   }
 
   public boolean equals(Object object) {
     if (object.getClass().isAssignableFrom(this.getClass())) {
-      return equalsList((List<T>) object);
-    } else {
-      return false;
-    }
-  }
-
-  private boolean equalsList(List<T> otherList) {
-    if (length() == otherList.length()) {
-      boolean isEqual = true;
-
-      for (int i = 0; i < length(); i++) {
-        if (!get(i).equals(otherList.get(i))) {
-          isEqual = false;
-        }
-      }
-
-      return isEqual;
+      List<T> otherList = (List<T>) object;
+      return toJavaList().equals(otherList.toJavaList());
     } else {
       return false;
     }
