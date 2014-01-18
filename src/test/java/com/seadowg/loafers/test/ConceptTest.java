@@ -5,12 +5,14 @@ import android.app.AlertDialog;
 import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 import com.seadowg.loafers.app.App;
 import com.seadowg.loafers.collection.List;
 import com.seadowg.loafers.test.helper.Helper;
 import com.seadowg.loafers.widget.Button;
 import com.seadowg.loafers.widget.Input;
 import com.seadowg.loafers.widget.Popup;
+import com.seadowg.loafers.widget.Text;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.robolectric.Robolectric;
@@ -32,10 +34,12 @@ public class ConceptTest {
     Activity app = Robolectric.buildActivity(MyApp.class).create().start().resume().get();
 
     LinearLayout layout = Helper.fetchAppLayout(app);
-    android.widget.EditText editText = (EditText) layout.getChildAt(0);
-    android.widget.Button button = (android.widget.Button) layout.getChildAt(1);
+    android.widget.TextView text = (TextView) layout.getChildAt(0);
+    android.widget.EditText editText = (EditText) layout.getChildAt(1);
+    android.widget.Button button = (android.widget.Button) layout.getChildAt(2);
 
     assertEquals(app.getTitle(), "Magic 8-Ball");
+    assertEquals("Ask the 8-Ball a question:", text.getText());
     assertEquals("", editText.getText().toString());
     assertEquals("Shake", button.getText());
 
@@ -48,6 +52,7 @@ public class ConceptTest {
     public void open() {
       setTitle("Magic 8-Ball");
 
+      new Text("Ask the 8-Ball a question:");
       new Input();
       new Button("Shake") {
         public void click() {

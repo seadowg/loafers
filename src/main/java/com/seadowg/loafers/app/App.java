@@ -6,12 +6,14 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 import com.seadowg.loafers.app.internal.Screen;
 import com.seadowg.loafers.app.internal.view.builder.AlertDialogBuilder;
 import com.seadowg.loafers.app.internal.view.builder.ButtonBuilder;
 import com.seadowg.loafers.widget.Button;
 import com.seadowg.loafers.widget.Input;
 import com.seadowg.loafers.widget.Popup;
+import com.seadowg.loafers.widget.Text;
 
 public abstract class App extends Activity {
   private static App context;
@@ -42,6 +44,12 @@ public abstract class App extends Activity {
     App.addView(view);
 
     return view;
+  }
+
+  public static void add(Text text) {
+    TextView view = new TextView(App.context);
+    view.setText(text.text);
+    App.addView(view);
   }
 
   public static void show(final Popup popup) {
