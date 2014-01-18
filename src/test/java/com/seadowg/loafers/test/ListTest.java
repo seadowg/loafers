@@ -6,6 +6,7 @@ import org.junit.Test;
 import java.util.Arrays;
 
 import static junit.framework.Assert.assertEquals;
+import static junit.framework.Assert.assertFalse;
 import static junit.framework.Assert.assertTrue;
 
 public class ListTest {
@@ -52,10 +53,10 @@ public class ListTest {
   @Test
   public void length_returnsTheLengthOfTheList() {
     List<String> threeList = new List("One", "Two", "Three");
-    assertEquals(new Integer(3), threeList.length());
+    assertEquals(3, threeList.length());
 
     List<String> oneList = new List("One");
-    assertEquals(new Integer(1), oneList.length());
+    assertEquals(1, oneList.length());
   }
 
   @Test
@@ -67,9 +68,33 @@ public class ListTest {
     assertTrue(combinedList != originalList);
     assertTrue(combinedList != appendList);
 
-    assertEquals(new Integer(3), combinedList.length());
+    assertEquals(3, combinedList.length());
     assertEquals("One", combinedList.get(0));
     assertEquals("Two", combinedList.get(1));
     assertEquals("Three", combinedList.get(2));
+  }
+
+  @Test
+  public void equals_comparesElementEqualityInOrder() {
+    List<String> oneTwoListOne = new List("One", "Two");
+    List<String> oneTwoListTwo = new List("One", "Two");
+
+    assertTrue(oneTwoListOne.equals(oneTwoListTwo));
+
+    List<String> twoOneList = new List("Two", "One");
+    assertFalse(oneTwoListOne.equals(twoOneList));
+  }
+
+  @Test
+  public void equals_isFalseForListWithDifferentLength() {
+    List<String> oneList = new List("One", "Two");
+    List<String> twoList = new List("One");
+
+    assertFalse(oneList.equals(twoList));
+  }
+
+  @Test
+  public void equals_isFalseForOtherTypes() {
+    assertFalse(new List("One").equals("Two"));
   }
 }

@@ -28,7 +28,7 @@ public class List<T> {
     return values.get(index);
   }
 
-  public Integer length() {
+  public int length() {
     return values.size();
   }
 
@@ -45,5 +45,29 @@ public class List<T> {
     }
 
     return new List<T>((T[]) buffer);
+  }
+
+  public boolean equals(Object object) {
+    if (object.getClass().isAssignableFrom(this.getClass())) {
+      return equalsList((List<T>) object);
+    } else {
+      return false;
+    }
+  }
+
+  private boolean equalsList(List<T> otherList) {
+    if (length() == otherList.length()) {
+      boolean isEqual = true;
+
+      for (int i = 0; i < length(); i++) {
+        if (!get(i).equals(otherList.get(i))) {
+          isEqual = false;
+        }
+      }
+
+      return isEqual;
+    } else {
+      return false;
+    }
   }
 }
