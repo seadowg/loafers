@@ -37,8 +37,11 @@ public abstract class App extends Activity {
     App.addView(new ButtonBuilder(App.context, button).build());
   }
 
-  public static void add(final Input input) {
-    App.addView(new EditText(App.context));
+  public static EditText add(final Input input) {
+    EditText view = new EditText(App.context);
+    App.addView(view);
+
+    return view;
   }
 
   public static void show(final Popup popup) {

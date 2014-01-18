@@ -7,6 +7,7 @@ import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import com.seadowg.loafers.app.App;
 import com.seadowg.loafers.collection.List;
+import com.seadowg.loafers.test.helper.Helper;
 import com.seadowg.loafers.widget.Button;
 import com.seadowg.loafers.widget.Input;
 import com.seadowg.loafers.widget.Popup;
@@ -30,15 +31,11 @@ public class ConceptTest {
   public void buildingAMagic8Ball_works() throws Exception {
     Activity app = Robolectric.buildActivity(MyApp.class).create().start().resume().get();
 
-    assertEquals(app.getTitle(), "Magic 8-Ball");
-
-    FrameLayout rootView = (FrameLayout) app.getWindow().getDecorView().getRootView();
-    LinearLayout rootLayout = (LinearLayout) rootView.getChildAt(0);
-    LinearLayout layout = ((LinearLayout) ((FrameLayout) rootLayout.getChildAt(2)).getChildAt(0));
-
+    LinearLayout layout = Helper.fetchAppLayout(app);
     android.widget.EditText editText = (EditText) layout.getChildAt(0);
     android.widget.Button button = (android.widget.Button) layout.getChildAt(1);
 
+    assertEquals(app.getTitle(), "Magic 8-Ball");
     assertEquals("", editText.getText().toString());
     assertEquals("Shake", button.getText());
 
