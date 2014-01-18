@@ -46,10 +46,12 @@ public abstract class App extends Activity {
     return view;
   }
 
-  public static void add(Text text) {
+  public static TextView add(Text text) {
     TextView view = new TextView(App.context);
     view.setText(text.text);
     App.addView(view);
+
+    return view;
   }
 
   public static void show(final Popup popup) {
