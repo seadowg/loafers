@@ -1,15 +1,11 @@
 package com.seadowg.loafers.test;
 
-import android.app.Activity;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.seadowg.loafers.app.App;
-import com.seadowg.loafers.collection.List;
 import com.seadowg.loafers.test.helper.Helper;
-import com.seadowg.loafers.widget.Button;
 import com.seadowg.loafers.widget.Input;
-import com.seadowg.loafers.widget.Popup;
 import com.seadowg.loafers.widget.Text;
 import org.junit.Test;
 import org.junit.runner.RunWith;

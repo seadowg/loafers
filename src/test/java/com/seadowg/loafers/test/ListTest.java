@@ -1,7 +1,7 @@
 package com.seadowg.loafers.test;
 
-import org.junit.Test;
 import com.seadowg.loafers.collection.List;
+import org.junit.Test;
 
 import java.util.Arrays;
 

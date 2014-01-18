@@ -1,11 +1,9 @@
 package com.seadowg.loafers.app;
 
 import android.app.Activity;
-import android.app.AlertDialog;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.seadowg.loafers.app.internal.Screen;
 import com.seadowg.loafers.app.internal.view.builder.AlertDialogBuilder;

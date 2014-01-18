@@ -2,8 +2,6 @@ package com.seadowg.loafers.widget;
 
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.view.KeyEvent;
-import android.view.View;
 import android.widget.EditText;
 import com.google.common.base.Function;
 import com.seadowg.loafers.app.App;

@@ -3,7 +3,6 @@ package com.seadowg.loafers.test;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.widget.EditText;
-import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.seadowg.loafers.app.App;
