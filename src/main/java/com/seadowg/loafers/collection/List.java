@@ -1,15 +1,15 @@
 package com.seadowg.loafers.collection;
 
-import java.util.ArrayList;
-import java.util.Arrays;
+import com.google.common.collect.ImmutableList;
+
 import java.util.Random;
 
 public class List<T> {
 
-  private final java.util.List<T> values;
+  private final ImmutableList<T> values;
 
   public List(T ... values) {
-    this.values = Arrays.asList(values);
+    this.values = ImmutableList.copyOf(values);
   }
 
   public T chooseOne() {
@@ -33,21 +33,23 @@ public class List<T> {
     return values.size();
   }
 
-  public java.util.List<T> toJavaList() {
-    return new ArrayList<T>(values);
+  public ImmutableList<T> toCollection() {
+    return values;
   }
 
   public List<T> add(List<T> appendList) {
-    java.util.List<T> javaList = toJavaList();
-    javaList.addAll(appendList.toJavaList());
+    ImmutableList<T> newValues = new ImmutableList.Builder<T>()
+        .addAll(toCollection())
+        .addAll(appendList.toCollection())
+        .build();
 
-    return new List((T[]) javaList.toArray());
+    return new List<T>((T[]) newValues.toArray());
   }
 
   public boolean equals(Object object) {
     if (object.getClass().isAssignableFrom(this.getClass())) {
       List<T> otherList = (List<T>) object;
-      return toJavaList().equals(otherList.toJavaList());
+      return toCollection().equals(otherList.toCollection());
     } else {
       return false;
     }
