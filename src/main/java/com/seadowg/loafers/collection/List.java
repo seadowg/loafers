@@ -2,6 +2,7 @@ package com.seadowg.loafers.collection;
 
 import com.google.common.collect.ImmutableList;
 
+import java.util.Collection;
 import java.util.Random;
 
 public class List<T> {
@@ -33,7 +34,7 @@ public class List<T> {
     return values.size();
   }
 
-  public ImmutableList<T> toCollection() {
+  public Collection<T> toCollection() {
     return values;
   }
 
