@@ -5,11 +5,11 @@ import com.google.common.collect.ImmutableList;
 import java.util.Collection;
 import java.util.Random;
 
-public class List<T> {
+public class Values<T> {
 
   private final ImmutableList<T> values;
 
-  public List(T ... values) {
+  public Values(T... values) {
     this.values = ImmutableList.copyOf(values);
   }
 
@@ -38,19 +38,19 @@ public class List<T> {
     return values;
   }
 
-  public List<T> add(List<T> appendList) {
+  public Values<T> add(Values<T> appendValues) {
     ImmutableList<T> newValues = new ImmutableList.Builder<T>()
         .addAll(toCollection())
-        .addAll(appendList.toCollection())
+        .addAll(appendValues.toCollection())
         .build();
 
-    return new List<T>((T[]) newValues.toArray());
+    return new Values<T>((T[]) newValues.toArray());
   }
 
   public boolean equals(Object object) {
     if (object.getClass().isAssignableFrom(this.getClass())) {
-      List<T> otherList = (List<T>) object;
-      return toCollection().equals(otherList.toCollection());
+      Values<T> otherValues = (Values<T>) object;
+      return toCollection().equals(otherValues.toCollection());
     } else {
       return false;
     }
