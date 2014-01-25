@@ -6,7 +6,7 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.seadowg.loafers.app.App;
-import com.seadowg.loafers.collection.Values;
+import com.seadowg.loafers.collection.Stuff;
 import com.seadowg.loafers.test.helper.Helper;
 import com.seadowg.loafers.widget.Button;
 import com.seadowg.loafers.widget.Input;
@@ -55,7 +55,7 @@ public class ConceptTest {
       new Input();
       new Button("Shake") {
         public void click() {
-          String answer = new Values<String>("Yes!", "No!", "Maybe?").chooseOne();
+          String answer = new Stuff<String>("Yes!", "No!", "Maybe?").chooseOne();
           new Popup(answer).show();
         }
       };
