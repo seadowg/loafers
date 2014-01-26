@@ -9,7 +9,7 @@ A framework for simple, easy to learn programming with Android.
 class MyApp extends App {
   public void open() {
     new Button("Click Me!") {
-      void click() {
+      void press() {
         new Popup("Hello! Thanks for clicking!").show();
       }
     }

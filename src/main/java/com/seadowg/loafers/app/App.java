@@ -3,12 +3,14 @@ package com.seadowg.loafers.app;
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.*;
+import android.widget.EditText;
+import android.widget.ListView;
+import android.widget.TextView;
 import com.seadowg.loafers.app.internal.Screen;
 import com.seadowg.loafers.app.internal.view.builder.AlertDialogBuilder;
 import com.seadowg.loafers.app.internal.view.builder.ButtonBuilder;
+import com.seadowg.loafers.app.internal.view.builder.ListViewBuilder;
 import com.seadowg.loafers.widget.*;
-import com.seadowg.loafers.widget.Button;
 
 public abstract class App extends Activity {
   private static App context;
@@ -49,10 +51,11 @@ public abstract class App extends Activity {
     return view;
   }
 
-  public static void add(List list) {
-    ListView view = new ListView(App.context);
-    view.setAdapter(new TextListAdapter(App.context, list.strings));
+  public static ListView add(List list) {
+    ListView view = new ListViewBuilder(App.context, list).build();
     App.addView(view);
+
+    return view;
   }
 
   public static void show(final Popup popup) {

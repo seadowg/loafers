@@ -19,7 +19,7 @@ public class ButtonBuilder {
     androidButton.setOnClickListener(new View.OnClickListener() {
       @Override
       public void onClick(View v) {
-        button.click();
+        button.press();
       }
     });
 
