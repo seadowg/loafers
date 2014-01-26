@@ -90,6 +90,7 @@ public class ConceptTest {
     @Override
     public void open() {
       setTitle("Shopping List");
+
       final List list = new List() {
         @Override
         public void press(String grocery) {
@@ -99,7 +100,6 @@ public class ConceptTest {
 
       final Input input = new Input();
       new Button("Add") {
-
         @Override
         public void press() {
           String grocery = input.getText();
