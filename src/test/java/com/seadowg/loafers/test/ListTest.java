@@ -3,7 +3,6 @@ package com.seadowg.loafers.test;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import com.seadowg.loafers.app.App;
-import com.seadowg.loafers.collection.Stuff;
 import com.seadowg.loafers.test.helper.Helper;
 import com.seadowg.loafers.widget.List;
 import org.junit.Test;
