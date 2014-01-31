@@ -47,23 +47,23 @@ public class ConceptTest {
 
   @Test
   public void buildingAShoppingList_works() throws Exception {
-    Activity app = Robolectric.buildActivity(ShoppingList.class).create().start().resume().get();
+    Activity app = Robolectric.buildActivity(AdventureList.class).create().start().resume().get();
 
     LinearLayout layout = Helper.fetchAppLayout(app);
     android.widget.ListView list = (ListView) layout.getChildAt(0);
     android.widget.EditText editText = (EditText) layout.getChildAt(1);
     android.widget.Button button = (android.widget.Button) layout.getChildAt(2);
 
-    assertEquals("Shopping List", app.getTitle());
+    assertEquals("Adventure List", app.getTitle());
     assertEquals("", editText.getText().toString());
     assertEquals("Add", button.getText());
 
-    editText.setText("Oranges");
+    editText.setText("Sword");
     button.performClick();
 
     shadowOf(list).populateItems();
     assertEquals("", editText.getText().toString());
-    assertEquals("Oranges", shadowOf(list.getChildAt(0)).innerText());
+    assertEquals("Sword", shadowOf(list.getChildAt(0)).innerText());
 
     list.performItemClick(list.getChildAt(0), 0, 0);
 
@@ -86,11 +86,11 @@ public class ConceptTest {
     }
   }
 
-  private static class ShoppingList extends App {
+  private static class AdventureList extends App {
 
     @Override
     public void open() {
-      setTitle("Shopping List");
+      setTitle("Adventure List");
 
       final List list = new List() {
         @Override
