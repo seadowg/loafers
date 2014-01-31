@@ -62,6 +62,7 @@ public class ConceptTest {
     button.performClick();
 
     shadowOf(list).populateItems();
+    assertEquals("", editText.getText().toString());
     assertEquals("Oranges", shadowOf(list.getChildAt(0)).innerText());
 
     list.performItemClick(list.getChildAt(0), 0, 0);
@@ -104,6 +105,7 @@ public class ConceptTest {
         public void press() {
           String grocery = input.getText();
           list.add(grocery);
+          input.clear();
         }
       };
     }

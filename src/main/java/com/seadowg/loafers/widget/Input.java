@@ -21,6 +21,10 @@ public class Input {
     editText.addTextChangedListener(new ChangeListener(function));
   }
 
+  public void clear() {
+    editText.setText("");
+  }
+
   private class ChangeListener implements TextWatcher {
     private Function<String, Void> function;
 
