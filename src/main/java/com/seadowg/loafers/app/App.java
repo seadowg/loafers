@@ -28,17 +28,13 @@ public abstract class App extends Activity {
     open();
   }
 
-  private static void addView(View view) {
-    screen.addView(view);
-  }
-
   public static void add(final Button button) {
-    App.addView(new ButtonBuilder(App.context, button).build());
+    App.screen.addView(new ButtonBuilder(App.context, button).build());
   }
 
   public static EditText add(final Input input) {
     EditText view = new EditText(App.context);
-    App.addView(view);
+    App.screen.addView(view);
 
     return view;
   }
@@ -46,14 +42,14 @@ public abstract class App extends Activity {
   public static TextView add(Text text) {
     TextView view = new TextView(App.context);
     view.setText(text.text);
-    App.addView(view);
+    App.screen.addView(view);
 
     return view;
   }
 
   public static ListView add(List list) {
     ListView view = new ListViewBuilder(App.context, list).build();
-    App.addView(view);
+    App.screen.addView(view);
 
     return view;
   }
