@@ -103,8 +103,7 @@ public class ConceptTest {
       new Button("Add") {
         @Override
         public void press() {
-          String grocery = input.getText();
-          list.add(grocery);
+          list.add(input.getText());
           input.clear();
         }
       };
