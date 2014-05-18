@@ -27,7 +27,7 @@ import static org.robolectric.Robolectric.shadowOf;
 @RunWith(RobolectricTestRunner.class) @Config(manifest=Config.NONE)
 public class ConceptTest {
   @Test
-  public void buildingAMagic8Ball_works() throws Exception {
+  public void buildingAMagic8Ball() throws Exception {
     Activity app = Robolectric.buildActivity(EightBall.class).create().start().resume().get();
 
     LinearLayout layout = Helper.fetchAppLayout(app);
@@ -46,7 +46,7 @@ public class ConceptTest {
   }
 
   @Test
-  public void buildingAShoppingList_works() throws Exception {
+  public void buildingAnAdventureList() throws Exception {
     Activity app = Robolectric.buildActivity(AdventureList.class).create().start().resume().get();
 
     LinearLayout layout = Helper.fetchAppLayout(app);

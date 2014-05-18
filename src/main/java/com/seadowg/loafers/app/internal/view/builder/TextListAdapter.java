@@ -19,7 +19,6 @@ public class TextListAdapter extends BaseAdapter {
 
   public void setList(List<String> list) {
     this.list = list;
-
   }
 
   @Override

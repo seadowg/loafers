@@ -1,6 +1,7 @@
 package com.seadowg.loafers.app.internal.view.builder;
 
 import android.content.Context;
+import android.view.View;
 import android.widget.ListView;
 import com.seadowg.loafers.widget.List;
 

@@ -13,7 +13,7 @@ public class ButtonBuilder {
     this.button = button;
   }
 
-  public View build() {
+  public android.widget.Button build() {
     android.widget.Button androidButton = new android.widget.Button(context);
     androidButton.setText(button.text);
     androidButton.setOnClickListener(new View.OnClickListener() {
