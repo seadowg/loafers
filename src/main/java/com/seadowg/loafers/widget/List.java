@@ -50,6 +50,10 @@ public class List implements AdapterView.OnItemClickListener {
     adapter.notifyDataSetChanged();
   }
 
+  public int length() {
+    return strings.size();
+  }
+
   @Override
   public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
     press(strings.get(position));

@@ -28,11 +28,32 @@ public class ListTest {
     assertEquals("Fin", shadowOf(listView.getChildAt(1)).innerText());
   }
 
+  @Test
+  public void length_returnsTheLengthOfTheList() {
+    ArgsApp app = Robolectric.buildActivity(ArgsApp.class).create().resume().start().get();
+
+    List list = app.getList();
+    assertEquals(2, list.length());
+
+    list.add("Lumpy Space Princess");
+    assertEquals(3, list.length());
+
+    list.remove("Jake");
+    list.remove("Fin");
+    assertEquals(1, list.length());
+  }
+
   private static class ArgsApp extends App {
+
+    private List list;
 
     @Override
     public void open() {
-      new List("Jake", "Fin");
+      list = new List("Jake", "Fin");
+    }
+
+    public List getList() {
+      return list;
     }
   }
 }
