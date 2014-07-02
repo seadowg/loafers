@@ -18,7 +18,7 @@ import static org.robolectric.Robolectric.shadowOf;
 public class ListTest {
   @Test
   public void rendersListViewOfTexts_fromStrings() {
-    ArgsApp app = Robolectric.buildActivity(ArgsApp.class).create().resume().start().get();
+    ArgsApp app = Robolectric.setupActivity(ArgsApp.class);
     LinearLayout layout = Helper.fetchAppLayout(app);
 
     ListView listView = (ListView) layout.getChildAt(0);
@@ -30,7 +30,7 @@ public class ListTest {
 
   @Test
   public void length_returnsTheLengthOfTheList() {
-    ArgsApp app = Robolectric.buildActivity(ArgsApp.class).create().resume().start().get();
+    ArgsApp app = Robolectric.setupActivity(ArgsApp.class);
 
     List list = app.getList();
     assertEquals(2, list.length());

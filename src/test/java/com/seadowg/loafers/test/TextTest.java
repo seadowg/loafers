@@ -20,7 +20,7 @@ public class TextTest {
 
   @Test
   public void setText_setsTheViewsText() {
-    MyApp app = Robolectric.buildActivity(MyApp.class).create().start().resume().get();
+    MyApp app = Robolectric.setupActivity(MyApp.class);
     LinearLayout layout = Helper.fetchAppLayout(app);
 
     TextView view = (TextView) layout.getChildAt(0);
@@ -31,7 +31,7 @@ public class TextTest {
 
   @Test
   public void setText_withAnInput_keepsTheTextUpToDateWithTheInput() {
-    MyApp app = Robolectric.buildActivity(MyApp.class).create().start().resume().get();
+    MyApp app = Robolectric.setupActivity(MyApp.class);
     LinearLayout layout = Helper.fetchAppLayout(app);
 
     TextView textView = (TextView) layout.getChildAt(0);

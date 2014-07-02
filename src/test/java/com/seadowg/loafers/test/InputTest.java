@@ -18,7 +18,7 @@ public class InputTest {
 
   @Test
   public void getText_returnsTheViewsText() {
-    TestApp app = Robolectric.buildActivity(TestApp.class).create().resume().start().get();
+    TestApp app = Robolectric.setupActivity(TestApp.class);
     LinearLayout layout = Helper.fetchAppLayout(app);
 
     EditText editText = (EditText) layout.getChildAt(0);

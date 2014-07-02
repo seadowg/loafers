@@ -28,7 +28,7 @@ import static org.robolectric.Robolectric.shadowOf;
 public class ConceptTest {
   @Test
   public void buildingAMagic8Ball() throws Exception {
-    Activity app = Robolectric.buildActivity(EightBall.class).create().start().resume().get();
+    Activity app = Robolectric.setupActivity(EightBall.class);
 
     LinearLayout layout = Helper.fetchAppLayout(app);
     android.widget.TextView text = (TextView) layout.getChildAt(0);
@@ -47,7 +47,7 @@ public class ConceptTest {
 
   @Test
   public void buildingAnAdventureList() throws Exception {
-    Activity app = Robolectric.buildActivity(AdventureList.class).create().start().resume().get();
+    Activity app = Robolectric.setupActivity(AdventureList.class);
 
     LinearLayout layout = Helper.fetchAppLayout(app);
     android.widget.ListView list = (ListView) layout.getChildAt(0);
