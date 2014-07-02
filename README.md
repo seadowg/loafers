@@ -1,5 +1,5 @@
-loafers
-=======
+# loafers
+![https://api.travis-ci.org/seadowg/loafers.svg](https://api.travis-ci.org/seadowg/loafers.svg)
 
 A framework for simple, easy to learn programming with Android.
 
