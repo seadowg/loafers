@@ -1,6 +1,7 @@
 package com.seadowg.loafers.app.internal.view.builder;
 
 import android.content.Context;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
@@ -38,7 +39,8 @@ public class TextListAdapter extends BaseAdapter {
 
   @Override
   public View getView(int position, View convertView, ViewGroup parent) {
-    TextView view = new TextView(context);
+    LayoutInflater layoutInflater = LayoutInflater.from(context);
+    TextView view = (TextView) layoutInflater.inflate(android.R.layout.simple_list_item_1, parent, false);
     view.setText(list.get(position));
     return view;
   }
