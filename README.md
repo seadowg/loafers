@@ -17,6 +17,18 @@ class MyApp extends App {
 }
 ```
 
+## Getting Started
+
+To start your own project simply download and unzip [this](http://github.com/seadowg/loafers-template/archive/master.zip).
+Then, plug your phone into your computer and from the unzipped project run:
+
+```bash
+./loafers
+```
+
+This will push your app to the phone. You can then edit the code in `MyApp.java` to
+build your dream app!
+
 ## Ideas
 
 Here are the planned features and ideas for loafers:
