@@ -25,6 +25,8 @@ public abstract class App extends Activity {
 
     screen = new Screen();
     screen.attach(this);
+
+    setTitle("Loafers App");
     open();
   }
 
