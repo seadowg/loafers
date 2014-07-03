@@ -12,7 +12,7 @@ class MyApp extends App {
       void press() {
         new Popup("Hello! Thanks for clicking!").show();
       }
-    }
+    };
   }
 }
 ```

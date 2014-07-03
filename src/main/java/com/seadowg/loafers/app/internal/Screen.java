@@ -14,8 +14,8 @@ public class Screen {
     layout = new LinearLayout(activity);
     layout.setOrientation(LinearLayout.VERTICAL);
     layout.setLayoutParams(new LinearLayout.LayoutParams(
-        LinearLayout.LayoutParams.FILL_PARENT,
-        LinearLayout.LayoutParams.FILL_PARENT
+        LinearLayout.LayoutParams.MATCH_PARENT,
+        LinearLayout.LayoutParams.MATCH_PARENT
     ));
 
     activity.setContentView(layout);
