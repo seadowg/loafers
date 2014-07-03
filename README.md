@@ -23,7 +23,7 @@ To start your own project simply download and unzip [this](http://github.com/sea
 Then, plug your phone into your computer and from the unzipped project run:
 
 ```bash
-./loafers MyApp.java
+./loafers
 ```
 
 This will push your app to the phone. You can then edit the code in `MyApp.java` to
